@@ -3,9 +3,10 @@ import { PORT, mongoDBURL } from './config.js';
 import mongoose from 'mongoose';
 import booksRoute from './routes/booksRoute.js';
 import cors from 'cors';
-
+import * as dotenv from 'dotenv';
+dotenv.config();
 const app = express();
-
+// import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY
 // Middleware for parsing request body
 app.use(express.json());
 
@@ -29,10 +30,10 @@ app.get('/', (request, response) => {
 app.use('/books', booksRoute);
 
 mongoose
-  .connect(mongoDBURL)
+  .connect(process.env.mongoDBURL)
   .then(() => {
     console.log('App connected to database');
-    app.listen(PORT, () => {
+    app.listen(process.env.PORT, () => {
       console.log(`App is listening to port: ${PORT}`);
     });
   })
