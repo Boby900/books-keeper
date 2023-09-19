@@ -1,5 +1,5 @@
 import express from 'express';
-import { PORT, mongoDBURL } from './config.js';
+
 import mongoose from 'mongoose';
 import booksRoute from './routes/booksRoute.js';
 import cors from 'cors';
@@ -34,7 +34,7 @@ mongoose
   .then(() => {
     console.log('App connected to database');
     app.listen(process.env.PORT, () => {
-      console.log(`App is listening to port: ${PORT}`);
+      console.log(`App is listening to port: ${process.env.PORT}`);
     });
   })
   .catch((error) => {
