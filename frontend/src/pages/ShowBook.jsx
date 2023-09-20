@@ -12,7 +12,7 @@ const ShowBook = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`https://tame-toad-cummerbund.cyclic.cloud/books${id}`)
+      .get(`https://tame-toad-cummerbund.cyclic.cloud/books/${id}`)
       .then((response) => {
         setBook(response.data);
         setLoading(false);
