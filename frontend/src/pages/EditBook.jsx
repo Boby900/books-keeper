@@ -13,7 +13,7 @@ const EditBook = () => {
   const navigate = useNavigate();
   const {id} = useParams();
   const { enqueueSnackbar } = useSnackbar();
-  https://tame-toad-cummerbund.cyclic.cloud/books
+
   useEffect(() => {
     setLoading(true);
     axios.get(`https://tame-toad-cummerbund.cyclic.cloud/books/${id}`)
@@ -37,7 +37,7 @@ const EditBook = () => {
     };
     setLoading(true);
     axios
-      .put(`http://localhost:5555/books/${id}`, data)
+      .put(`https://tame-toad-cummerbund.cyclic.cloud/books/${id}`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Book Edited successfully', { variant: 'success' });
